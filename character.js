@@ -9,8 +9,8 @@ function listaIdPersonagem(id){
       .then(function (response) {
         // handle success
         comics = response.data.personagens[0].comics
-        console.log(response.data.personagens)
-        console.log(comics)
+        /* console.log(response.data.personagens)
+        console.log(comics) */
         document.querySelector(".row").innerHTML = ""
         
         response.data.personagens.forEach(personagem => {
@@ -31,34 +31,16 @@ function listaIdPersonagem(id){
             }
 
             
-            comics.forEach(comic =>{
+           /*  comics.forEach(comic =>{
                 document.querySelector(".hq").innerHTML +=
-                /* ` <div class="comic">
-                    <img src="marvel.png" class="img-thumbnail" alt="..." >
-                    <p>${comic.name}</p>
-                  </div>` */
-                 /*  `<div class="col">
-                    <img src="marvel.png" class="img-thumbnail" alt="..." >
-                    <p>${comic.name}</p>
-                  </div>` */
-
-
-                /* `<div class="col"
-                  <div class="card text-dark bg-light mb-3" style="width: 18rem;">
-                    <img src="marvel.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">${comic.name}</h5>                  
-                    </div>
-                  </div>
-                </div>` */
-
+                
                 `<div class="card text-danger bg-light y-3 x-3" style="max-width: 250px;"> 
                   <img src="marvel.png" class="card-img-top" alt="..."> 
                   <div class="card-body"> 
                     <h5 class="card-title">${comic.name}</h5> 
                   </div> 
                 </div>`
-            });
+            }); */
 
 
            
@@ -72,5 +54,45 @@ function listaIdPersonagem(id){
       })
     }
   
+    /* ----------------------------  */
+
+    function listaQuadrinhos(id){
+      console.log('foi')
+      axios.get(`http://localhost:3000/quadrinhos/${id}`,{
+        params:{
+          limit:100
+      }
+      })
+        .then(function (response) {
+          // handle success
+          comics = response.data.quadrinhos
+          //console.log(response.data.quadrinhos)
+          console.log(comics)
+          
+          
+          
+              
+              comics.forEach(comic =>{
+                  document.querySelector(".hq").innerHTML +=
+                  
+                  `<div class="card text-danger bg-light y-3 x-3" style="max-width: 250px;"> 
+                    <img src="${comic.thumbnail.path}.${comic.thumbnail.extension}" class="card-img-top" alt="..."> 
+                    <div class="card-body"> 
+                      <h5 class="card-title">${comic.nome}</h5> 
+                    </div> 
+                  </div>`
+              });
+   
+          
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+      }
+
+
+
 
     listaIdPersonagem(idP) 
+    listaQuadrinhos(idP)
