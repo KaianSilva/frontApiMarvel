@@ -7,7 +7,7 @@ function listaPersonagens(pagina){
 axios.get('http://localhost:3000/personagem',{
     params:{
         page: pagina,
-        limit:12
+        limit:21
     }
 })
   .then(function (response) {

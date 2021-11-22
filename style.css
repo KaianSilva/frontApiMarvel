@@ -1,7 +1,11 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #eb1c23;
+    /* background-color: #eb1c23; */
+    background: #eb1c23;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eb1c23, #cb2d3e);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #eb1c23, #cb2d3e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     
 }
 
@@ -18,9 +22,10 @@ body {
     width: 20%;
 }
 .titleimage {
-    background-color: #eb1c23;
-    width: 200px;
-    margin-top: -50px;
+    /* background-color: #eb1c23; */
+    margin: 20px;
+    width: 800px;
+    /* margin-top: -50px; */
 }
 .pictures {
     margin-left: 5%;
