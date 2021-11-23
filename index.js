@@ -33,7 +33,7 @@ axios.get('http://localhost:3000/personagem',{
     } else {
         document.querySelector(".col-12").innerHTML +=
         `<a href="#" onclick="listaPersonagem(${personagem.id})">
-          <img src="${personagem.thumbnail.path}.${personagem.thumbnail.extension}" class="img-thumbnail" alt="..." >
+          <img src="${personagem.thumbnail.path}.${personagem.thumbnail.extension}" class="img-thumbnail" alt="(${personagem.nome}" >
         </a>`
     }
 
